@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>업무보고 md 생성기</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>업무보고 md 생성기</h1>
+  <p class="sub">입력창에 활동 메모를 자유롭게 적고 '생성'을 누르면, 보고 양식으로 정리됩니다.</p>
+</header>
+
+<main class="grid">
+  <!-- 주간 -->
+  <section class="col">
+    <h2>주간업무보고</h2>
+    <label>입력</label>
+    <textarea id="weekly-input" placeholder="예) 지난주 수요일 2시~4시반 르메르디앙에서 M.AX 표준소분과 회의 참석. 추진 실적 공유하고 AI 기능안전 ISO/IEC 22440 소개 받음..."></textarea>
+    <div class="row">
+      <button id="weekly-gen" class="primary">생성</button>
+      <span id="weekly-status" class="status"></span>
+    </div>
+    <label>결과 (편집 가능)</label>
+    <textarea id="weekly-output" placeholder="생성된 결과가 여기에 표시됩니다."></textarea>
+    <div class="row">
+      <button id="weekly-copy">복사</button>
+      <span id="weekly-copy-status" class="status"></span>
+    </div>
+  </section>
+
+  <!-- 월간 -->
+  <section class="col">
+    <h2>월간업무보고</h2>
+    <label>입력</label>
+    <textarea id="monthly-input" placeholder="예) 10/20 한국뉴욕주립대에서 초청강연 함. 주제는 Physical AI for Autonomous Manufacturing. 교수/학생 대상..."></textarea>
+    <div class="row">
+      <button id="monthly-gen" class="primary">생성</button>
+      <span id="monthly-status" class="status"></span>
+    </div>
+    <label>결과 (편집 가능)</label>
+    <textarea id="monthly-output" placeholder="생성된 결과가 여기에 표시됩니다."></textarea>
+    <div class="row">
+      <button id="monthly-copy">복사</button>
+      <span id="monthly-copy-status" class="status"></span>
+    </div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
