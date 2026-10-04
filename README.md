@@ -15,13 +15,31 @@ pip install -r requirements.txt
 
 ## 실행
 방법 1 — 더블클릭:
-- `run.bat` 더블클릭 → 서버 기동 후 브라우저 자동 열림
+- `업무보고md 생성기.bat` 더블클릭 → 서버 기동 + 브라우저 자동 열림
 
 방법 2 — 수동:
 ```powershell
 python app.py
 ```
 → 브라우저에서 http://127.0.0.1:5000
+
+## 작업 표시줄에 고정하기 (Windows)
+`.bat` 파일은 Windows 작업 표시줄에 바로 고정이 안 됩니다. 바로가기를 하나 만들어서 고정하세요.
+
+PowerShell에서 (경로는 본인 환경에 맞게):
+```powershell
+$dir = "경로\업무보고용 md 내용 생성기"
+$bat = Join-Path $dir "업무보고md 생성기.bat"
+$lnkPath = Join-Path $dir "업무보고 생성기.lnk"
+$WshShell = New-Object -ComObject WScript.Shell
+$lnk = $WshShell.CreateShortcut($lnkPath)
+$lnk.TargetPath = "$env:SystemRoot\System32\cmd.exe"
+$lnk.Arguments  = "/c `"`"$bat`"`""
+$lnk.WorkingDirectory = $dir
+$lnk.IconLocation = "$env:SystemRoot\System32\shell32.dll,13"
+$lnk.Save()
+```
+생성된 `.lnk` **우클릭 → "작업 표시줄에 고정"** (안 보이면 Shift+우클릭 또는 "자세한 옵션 표시"). 이제 작업 표시줄 아이콘 클릭이면 바로 실행됩니다.
 
 ## 사용
 1. 왼쪽(주간) 또는 오른쪽(월간) 입력창에 활동 메모 자유형으로 입력

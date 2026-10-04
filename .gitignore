@@ -5,3 +5,15 @@ __pycache__/
 venv/
 .DS_Store
 Thumbs.db
+
+# PyInstaller 빌드 산출물 (사용 안 함, 로컬에서 실험 시 생기면 무시)
+build/
+dist/
+*.spec
+
+# IDE / 로컬 설정
+.cursor/
+.mcp.json
+
+# 사용자별 바로가기 (경로가 PC마다 다름)
+*.lnk

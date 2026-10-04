@@ -26,6 +26,18 @@
   - `run.bat` (더블클릭 실행용)
   - 문서화: `CLAUDE.md`, `PROGRESS.md`, `LESSONS.md`, `README.md`
 
+## 2026-10-04 — 후속 작업
+- exe 패키징 시도 (PyInstaller) → **중단**
+  - `--onefile`, `--onedir` 모두 "Failed to extract app: failed to open archive file!" 발생
+  - 원인 추정: Python 3.14 + PyInstaller 6.22 호환성 문제 (한글 경로는 ASCII 경로로 복사해도 재현)
+  - `app.py`의 PyInstaller 관련 수정은 원복, 빌드 산출물(`build/`, `dist/`, `*.spec`) 삭제
+- 실행 파일 리네임
+  - `run.bat` → `업무보고md 생성기.bat` (사용자가 직접 변경)
+- 작업 표시줄 고정
+  - `.bat`는 작업 표시줄에 직접 고정 불가 → `cmd.exe /c "<bat>"`을 Target으로 하는 `.lnk` 바로가기를 PowerShell로 생성하는 방법 사용
+  - 바로가기 파일은 PC마다 경로가 달라 `.gitignore`로 제외
+- `.gitignore` 보강: `build/`, `dist/`, `*.spec`, `.cursor/`, `.mcp.json`, `*.lnk`
+
 ## 다음 할 일 (후보)
 - 결과 하단에 "다시 생성" 버튼 (프롬프트 미세조정 반영)
 - 자주 쓰는 카테고리 템플릿 버튼 (예: `(해외학회 참석)` 삽입)
